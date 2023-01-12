@@ -1,14 +1,48 @@
 <%- include('partials/header') -%>
 
 <main class="container">
-  <div class="row justify-content-center">
-    <section class="col-6 mt-5">
-      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+  <section>
+
+  </section>
+  <section>
+    <h2 class="text-3xl font-bold underline">Log In</h2>
+    <p class="underline">Already a registered user? Log in below.</p>
+
+    <form action="/login" method="POST">
+
+      <label for="email-input" class="form-label">Email adress</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="email"
+      />
+
+      <label for="password-input" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        name="password"
+      />
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
+  </section>
+
+
+
+
+  <!-- <div class="row justify-content-center">
+    <section class="col-6 mt-5">
+
       <form action="/login" method="POST">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label"
@@ -32,7 +66,10 @@
           />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      </form> -->
+
+
+
     </section>
   </div>
 </main>
