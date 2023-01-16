@@ -1,17 +1,22 @@
 <%- include('partials/header') -%>
 
-<main class="flex justify-center py-20">
+<main class="flex justify-center py-10">
 
-  
-  <section class="py-8 px-8 w-96 h-108 bg-slate md:border-r border-slate-300 ">
+
+<!--Left Column-->
+  <section class="py-8 px-8 w-96 h-108 bg-slate md:border border-slate-300 shadow ">
     <h2 class="text-3xl font-bold pb-4">Log In</h2>
 
     <form action="/login" method="POST">
 
+      <!-- User Input -->
+
       <label for="email-input" class="block pb-4">
         <span class="block text-sm font-medium text-slate-700">Email address</span>
-        <input type="email" id="email-input" aria-describedby="emailHelp" name="email" autocomplete="off" placeholder="user@email.com" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+        <input type="email" id="email-input" name="email" autocomplete="off" placeholder="user@email.com" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
       </label>
+
+      <!-- Password Input-->
 
       <label for="password-input" class="block pr relative pb-2">
         <span class="block text-sm font-medium text-slate-700">Password</span>
@@ -21,24 +26,34 @@
       
       <a href="#"><span class="block text-right text-xs text-slate-500 hover:text-slate-700">Forgot your password?</span></a>
 
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+        <div class="text-red-600 pt-2"><%= el.msg %></div>
+        <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+        messages.info.forEach( el => { %>
+        <div class="text-red-600"><%= el.msg %></div>
+        <% }) %> <% } %>
+
+      <!-- Buttons -->
+
       <div class="flex justify-evenly py-12">
         <button type="submit" class=" w-2/5 btn bg-lime-600 text-white text-center rounded-2xl w-36 font-bold text-sm hover:bg-lime-700">Log In</button>
         <a href="/signup"><span class="btn bg-slate-200 text-slate-700 text-center rounded-2xl w-36 font-bold text-sm hover:bg-slate-300">or Sign Up</span></a>
       </div>
     </form>
+
+    <h2 class="w-full text-center border-b border-slate-300 leading-[0.0001em] " >
+      <span class="bg-white text-slate-500 text-sm"> or </span>
+    </h2>
+
+    <div class="h-11 w-full px-4 py-2 mt-4 text-center bg-slate-200">  
+      <span class="text-sm pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left bg-contain">Continue with Google</span>
+    </div>
   </section>
 
-<!-- Social Media Log In -->
 
-  <section class="hidden ml-8 py-8 px-108 w-80 h-108 md:flex flex-col justify-start ">
-    <div class="h-11 w-80 px-4 py-2 text-center bg-gray-100 my-8">  
-      <span class="pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left">Log In with Google</span>
-    </div>
-    <div class="h-11 w-80 px-4 py-2 text-center bg-gray-100">  
-      <span class="pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-facebook.png')] bg-no-repeat bg-left bg-contain">Log In with Facebook</span>
-    </div>
-
-  </section>
+<!-- <section>
+  hello
+</section> -->
 
 </main>
 
