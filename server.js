@@ -10,10 +10,11 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
+const cartRoute = require('./routes/cart');
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
-
+console.log(process.env.DATABASE_URL);
 // Passport config
 require("./config/passport")(passport);
 
@@ -43,9 +44,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    useNewUrlParser: true
   })
 );
-
+// mongoose.connect(process.env.DATABASE_URL, {
+//   useNewUrlParser: true
+// })
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -56,8 +60,9 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
+app.use('/cart', cartRoute);
 
 //Server Running
 app.listen(process.env.PORT, () => {
-  console.log("Server is running, you better catch it!");
+  console.log("Server is running on port 5000");
 });
