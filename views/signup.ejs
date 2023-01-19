@@ -3,17 +3,24 @@
     <main class="flex justify-center py-10">
 
       <!--Left Column-->
-        <section class="py-8 px-8 w-96 h-108 bg-slate md:w-3/5">
+        <section class="py-8 px-8 w-96 h-108 bg-slate shadow">
           <h2 class="text-3xl font-bold pb-4">Sign Up</h2>
       
           <form action="/signup" method="POST">
       
             <!-- User Input -->
+            <div class="block w-full flex">
+              <label for="name-input" class="block pb-4 w-1/2 float-left mr-1 ">
+                <span class="block text-sm font-medium text-slate-700">Name</span>
+                <input type="text" id="name-input"  name="firstName" autocomplete="off" placeholder="John" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+              </label>
 
-            <label for="name-input" class="block pb-4">
-              <span class="block text-sm font-medium text-slate-700">Name</span>
-              <input type="text" id="name-input"  name="name" autocomplete="off" placeholder="John Doe" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
-            </label>
+              <label for="last-name-input" class="block pb-4 w-1/2 float-left ml-1">
+                <span class="block text-sm font-medium text-slate-700">Last Name</span>
+                <input type="text" id="last-name-input"  name="lastName" autocomplete="off" placeholder="Doe" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+              </label>
+            </div>
+
       
             <label for="email-input" class="block pb-4">
               <span class="block text-sm font-medium text-slate-700">Email address</span>
@@ -22,15 +29,15 @@
       
             <!-- Password Input-->
       
-            <label for="password-input" class="block pr relative pb-2">
+            <label for="password-input" class="block pr relative pb-4">
               <span class="block text-sm font-medium text-slate-700">Password</span>
               <input type="password" id="password-input" name="password" placeholder="********" class="mt-1  w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400  focus:outline-none   disabled:bg-slate-50  invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-red-500 focus:invalid:ring-red-500"/>
-              <i id="togglePassword" onclick="myFunction()" class="text-slate-700 bi bi-eye-slash cursor-pointer absolute bottom-4 right-4 hover:text-lime-600"></i>
+              <i id="togglePassword" onclick="myFunction()" class="text-slate-700 bi bi-eye-slash cursor-pointer absolute bottom-8 right-4 hover:text-lime-600"></i>
             </label>
 
             <label for="confirm-password-input" class="block pr relative pb-2">
               <span class="block text-sm font-medium text-slate-700">Confirm Password</span>
-              <input type="password" id="confirm-password-input" name="confirm-password" placeholder="********" class="mt-1  w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400  focus:outline-none   disabled:bg-slate-50  invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-red-500 focus:invalid:ring-red-500"/>
+              <input type="password" id="confirm-password-input" name="confirmPassword" placeholder="********" class="mt-1  w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400  focus:outline-none   disabled:bg-slate-50  invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-red-500 focus:invalid:ring-red-500"/>
             </label>
                   
             <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
@@ -42,12 +49,21 @@
       
             <!-- Buttons -->
       
-            <div class="flex justify-evenly py-12">
-              <a href="/signup"><span class="btn bg-slate-200 text-slate-700 text-center rounded-2xl w-36 font-bold text-sm hover:bg-slate-300">Sign Up</span></a>
-              <div class="w-50 rounded-2xl text-center bg-slate-200">  
+            <div class="flex justify-center pt-6 pb-3 w-full">
+              <button type="submit" class=" w-2/5 btn bg-lime-600 text-white text-center rounded-2xl w-36 font-bold text-sm hover:bg-lime-700">Sign Up</button>  
+            </div>
+
+            <p class="pb-4 text-center text-xs text-slate-500 hover:text-slate-700"><a href="/login">Already have an account? Log In</a></p>
+
+            <h2 class="relative w-full text-center border-b border-slate-300 leading-[0.0001em] " >
+              <span class="absolute -top-3 bg-white text-slate-500 text-sm">or</span>
+            </h2>
+
+            <a href="/auth/google">
+              <div class="h-11 w-full px-4 py-2 mt-4 text-center bg-slate-200 hover:bg-slate-300">  
                 <span class="text-sm pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left bg-contain">Continue with Google</span>
               </div>
-            </div>
+            </a>
           </form>
 
         </section>

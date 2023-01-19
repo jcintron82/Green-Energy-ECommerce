@@ -4,7 +4,7 @@
 
 
 <!--Left Column-->
-  <section class="py-8 px-8 w-96 h-108 bg-slate md:border border-slate-300 shadow ">
+  <section class="py-8 px-8 w-96 h-108 bg-slate shadow">
     <h2 class="text-3xl font-bold pb-4">Log In</h2>
 
     <form action="/login" method="POST">
@@ -35,19 +35,21 @@
 
       <!-- Buttons -->
 
-      <div class="flex justify-evenly py-12">
+      <div class="flex justify-evenly pt-14 pb-8">
         <button type="submit" class=" w-2/5 btn bg-lime-600 text-white text-center rounded-2xl w-36 font-bold text-sm hover:bg-lime-700">Log In</button>
-        <a href="/signup"><span class="btn bg-slate-200 text-slate-700 text-center rounded-2xl w-36 font-bold text-sm hover:bg-slate-300">or Sign Up</span></a>
+        <a href="/signup"><span class="btn bg-slate-200 text-slate-700 text-center rounded-2xl w-36 font-bold text-sm hover:bg-slate-300">Sign Up</span></a>
       </div>
     </form>
 
-    <h2 class="w-full text-center border-b border-slate-300 leading-[0.0001em] " >
-      <span class="bg-white text-slate-500 text-sm"> or </span>
+    <h2 class="relative w-full text-center border-b border-slate-300 flex justify-center " >
+      <span class="absolute -top-3 bg-white text-slate-500 text-sm px-2">or</span>
     </h2>
 
-    <div class="h-11 w-full px-4 py-2 mt-4 text-center bg-slate-200">  
-      <span class="text-sm pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left bg-contain">Continue with Google</span>
-    </div>
+    <a href="/auth/google">
+      <div class="h-11 w-full px-4 py-2 mt-4 text-center bg-slate-200 hover:bg-slate-300">  
+        <span class="text-sm pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left bg-contain">Continue with Google</span>
+      </div>
+    </a>
   </section>
 
 
