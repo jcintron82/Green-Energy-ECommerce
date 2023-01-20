@@ -1,0 +1,85 @@
+<%- include('partials/header') -%>
+
+<section class="bg-white py-8">
+  <a class="ml-4" href="/feed">Return to product feed</a><a class="" href="/profile"> | Go to account page</a>
+  <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+    <div class="w-full md:w-1/2 xl:w-1/2 p-6 flex flex-col">
+      <!-- Image grows on hover, and modal with expanded image view opens on click -->
+      <label for="my-modal-4"><img class="hover:grow hover:shadow-lg" src="<%= product.image%>"></label>
+      <div class="pt-3 flex items-center justify-between">
+        <!-- PRODUCT TITLE INSERTED HERE -->
+        <p class=""><%= product.title %></p>
+        <form class="col-1" action="/product/likeProductt/<%= product.id %>?_method=PUT" method="POST">
+          <button type="submit">
+            <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+            </svg>
+          </button>
+        </form>
+        <!-- <p><%=product.likes%> </p> -->
+      </div>
+      <p class="pt-1 text-gray-900">Price</p>
+
+    </div>
+    <!-- Box with tabs for product description and info -->
+    <div class="card w-full md:w-auto lg:w-1/2 p-6 flex flex-col self-start mt-4">
+      <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+          <li class="mr-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="description-tab" data-tabs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="false">Description</button>
+          </li>
+          <li class="mr-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="productspecs-tab" data-tabs-target="#productspecs" type="button" role="tab" aria-controls="productspecs" aria-selected="false">Product Specification</button>
+          </li>
+          <li class="mr-2" role="presentation">
+            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="dimensions-tab" data-tabs-target="#dimensions" type="button" role="tab" aria-controls="dimensions" aria-selected="false">Dimensions</button>
+          </li>
+          <li role="presentation">
+            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="moreinfo-tab" data-tabs-target="#moreinfo" type="button" role="tab" aria-controls="moreinfo" aria-selected="false">More Info</button>
+          </li>
+        </ul>
+      </div>
+      <div id="myTabContent">
+        <div class="hidden p-4 rounded-lg bg-gray-50" id="description" role="tabpanel" aria-labelledby="description-tab">
+          <!-- PRODUCT DESCRIPTION  -->
+          <p class="text-sm text-gray-500 "><%= product.caption %>. This is some placeholder content the <strong class="font-medium text-gray-800">Description</strong> tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
+        <div class="hidden p-4 rounded-lg bg-gray-50" id="productspecs" role="tabpanel" aria-labelledby="productspecs-tab">
+          <p class="text-sm text-gray-500 ">This is some placeholder content the <strong class="font-medium text-gray-800">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
+        <div class="hidden p-4 rounded-lg bg-gray-50" id="dimensions" role="tabpanel" aria-labelledby="dimensions-tab">
+          <p class="text-sm text-gray-500">This is some placeholder content the <strong class="font-medium text-gray-800">Dimensions tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
+        <div class="hidden p-4 rounded-lg bg-gray-50" id="moreinfo" role="tabpanel" aria-labelledby="moreinfo-tab">
+          <p class="text-sm text-gray-500">This is some placeholder content the <strong class="font-medium text-gray-800">more info tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        </div>
+      </div>
+      <!-- Add to cart button and input field for quantity -->
+      <div>
+        <label for="default-input" class=" mb-2 text-sm font-medium text-gray-900">Quantity</label>
+        <input type="text" id="default-input" class=" p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-50">
+        <button class="btn-outline-green-100 bg-lime-600 hover:bg-lime-700 text-white hover:text-white py-2 px-4 rounded-full m-2">Add to cart</button>
+      </div>
+
+    </div>
+    <!-- DELETE PRODUCT - If product owner is logged in -->
+    <%if(product.user == user.id){ %>
+    <form action="/product/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" class="col-3">
+      <button class="btn btn-grey mt-5" type="submit">Delete this product</button>
+    </form>
+    <%}%>     
+    </div>
+
+    
+<!-- Modal for expanded view of product image -->
+    <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+    <div class="modal w-full">
+      <div class="modal-box self-center relative max-w-5xl p-0">
+        <label for="my-modal-4" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <img class=" hover:shadow-lg w-full" src="<%= product.image%>">
+  </div>
+  </div>
+
+</section>
+
+<%- include('partials/footer') -%>
