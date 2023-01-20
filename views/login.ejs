@@ -1,40 +1,74 @@
 <%- include('partials/header') -%>
 
-<main class="container">
-  <div class="row justify-content-center">
-    <section class="col-6 mt-5">
+<main class="flex justify-center py-10">
+
+
+<!--Left Column-->
+  <section class="py-8 px-8 w-96 h-108 bg-slate shadow">
+    <h2 class="text-3xl font-bold pb-4">Log In</h2>
+
+    <form action="/login" method="POST">
+
+      <!-- User Input -->
+
+      <label for="email-input" class="block pb-4">
+        <span class="block text-sm font-medium text-slate-700">Email address</span>
+        <input type="email" id="email-input" name="email" autocomplete="off" placeholder="user@email.com" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+      </label>
+
+      <!-- Password Input-->
+
+      <label for="password-input" class="block pr relative pb-2">
+        <span class="block text-sm font-medium text-slate-700">Password</span>
+        <input type="password" id="password-input" name="password" placeholder="********" class="mt-1  w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400  focus:outline-none   disabled:bg-slate-50  invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-red-500 focus:invalid:ring-red-500"/>
+        <i id="togglePassword" onclick="myFunction()" class="text-slate-700 bi bi-eye-slash cursor-pointer absolute bottom-4 right-4 hover:text-lime-600"></i>
+      </label>
+      
+      <a href="#"><span class="block text-right text-xs text-slate-500 hover:text-slate-700">Forgot your password?</span></a>
+
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-      messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
-      <% }) %> <% } %>
-      <form action="/login" method="POST">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="email"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            name="password"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </section>
-  </div>
+        <div class="text-red-600 pt-2"><%= el.msg %></div>
+        <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+        messages.info.forEach( el => { %>
+        <div class="text-red-600"><%= el.msg %></div>
+        <% }) %> <% } %>
+
+      <!-- Buttons -->
+
+      <div class="flex justify-evenly pt-14 pb-8">
+        <button type="submit" class=" w-2/5 btn bg-lime-600 text-white text-center rounded-2xl w-36 font-bold text-sm hover:bg-lime-700">Log In</button>
+        <a href="/signup"><span class="btn bg-slate-200 text-slate-700 text-center rounded-2xl w-36 font-bold text-sm hover:bg-slate-300">Sign Up</span></a>
+      </div>
+    </form>
+
+    <h2 class="relative w-full text-center border-b border-slate-300 flex justify-center " >
+      <span class="absolute -top-3 bg-white text-slate-500 text-sm px-2">or</span>
+    </h2>
+
+    <a href="/auth/google">
+      <div class="h-11 w-full px-4 py-2 mt-4 text-center bg-slate-200 hover:bg-slate-300">  
+        <span class="text-sm pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left bg-contain">Continue with Google</span>
+      </div>
+    </a>
+  </section>
+
+
+<!-- <section>
+  hello
+</section> -->
+
 </main>
+
+<script> 
+  function myFunction() {
+  document.getElementById("togglePassword").classList.toggle("bi-eye")
+  var x = document.getElementById("password-input");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
+</script>
 
 <%- include('partials/footer') -%>

@@ -1,39 +1,85 @@
 <%- include('partials/header') -%>
-    <main class="container">
-        <div class="row justify-content-center">
-            <section class="col-6 mt-5">
-                <% if (locals.messages.errors) { %>
-                    <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <% if (locals.messages.info) { %>
-                    <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <form action="/signup" method="POST">
-                    <div class="mb-3">
-                        <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="userName" name="userName">
-                      </div>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password" name="password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-            </section>
-        </div>
-    </main>
+
+    <main class="flex justify-center py-10">
+
+      <!--Left Column-->
+        <section class="py-8 px-8 w-96 h-108 bg-slate shadow">
+          <h2 class="text-3xl font-bold pb-4">Sign Up</h2>
+      
+          <form action="/signup" method="POST">
+      
+            <!-- User Input -->
+            <div class="block w-full flex">
+              <label for="name-input" class="block pb-4 w-1/2 float-left mr-1 ">
+                <span class="block text-sm font-medium text-slate-700">Name</span>
+                <input type="text" id="name-input"  name="firstName" autocomplete="off" placeholder="John" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+              </label>
+
+              <label for="last-name-input" class="block pb-4 w-1/2 float-left ml-1">
+                <span class="block text-sm font-medium text-slate-700">Last Name</span>
+                <input type="text" id="last-name-input"  name="lastName" autocomplete="off" placeholder="Doe" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+              </label>
+            </div>
+
+      
+            <label for="email-input" class="block pb-4">
+              <span class="block text-sm font-medium text-slate-700">Email address</span>
+              <input type="email" id="email-input" name="email" autocomplete="off" placeholder="user@email.com" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none  disabled:bg-slate-50  invalid:border-red-500 invalid:text-red-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"/>
+            </label>
+      
+            <!-- Password Input-->
+      
+            <label for="password-input" class="block pr relative pb-4">
+              <span class="block text-sm font-medium text-slate-700">Password</span>
+              <input type="password" id="password-input" name="password" placeholder="********" class="mt-1  w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400  focus:outline-none   disabled:bg-slate-50  invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-red-500 focus:invalid:ring-red-500"/>
+              <i id="togglePassword" onclick="myFunction()" class="text-slate-700 bi bi-eye-slash cursor-pointer absolute bottom-8 right-4 hover:text-lime-600"></i>
+            </label>
+
+            <label for="confirm-password-input" class="block pr relative pb-2">
+              <span class="block text-sm font-medium text-slate-700">Confirm Password</span>
+              <input type="password" id="confirm-password-input" name="confirmPassword" placeholder="********" class="mt-1  w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400  focus:outline-none   disabled:bg-slate-50  invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-red-500 focus:invalid:ring-red-500"/>
+            </label>
+                  
+            <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+              <div class="text-red-600 pt-2"><%= el.msg %></div>
+              <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+              messages.info.forEach( el => { %>
+              <div class="text-red-600"><%= el.msg %></div>
+              <% }) %> <% } %>
+      
+            <!-- Buttons -->
+      
+            <div class="flex justify-center pt-6 pb-3 w-full">
+              <button type="submit" class=" w-2/5 btn bg-lime-600 text-white text-center rounded-2xl w-36 font-bold text-sm hover:bg-lime-700">Sign Up</button>  
+            </div>
+
+            <p class="pb-4 text-center text-xs text-slate-500 hover:text-slate-700"><a href="/login">Already have an account? Log In</a></p>
+
+            <h2 class="relative w-full text-center border-b border-slate-300 leading-[0.0001em] " >
+              <span class="absolute -top-3 bg-white text-slate-500 text-sm">or</span>
+            </h2>
+
+            <a href="/auth/google">
+              <div class="h-11 w-full px-4 py-2 mt-4 text-center bg-slate-200 hover:bg-slate-300">  
+                <span class="text-sm pl-8 align-middle font-bold text-slate-700 bg-[url('/imgs/bg-google.svg')] bg-no-repeat bg-left bg-contain">Continue with Google</span>
+              </div>
+            </a>
+          </form>
+
+        </section>
+         
+      </main>
+      
+      <script> 
+        function myFunction() {
+        document.getElementById("togglePassword").classList.toggle("bi-eye")
+        var x = document.getElementById("password-input");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      } 
+      </script>
 
 <%- include('partials/footer') -%>
