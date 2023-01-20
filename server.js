@@ -12,6 +12,8 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const cartRoute = require('./routes/cart');
 
+app.use("/scripts", express.static("scripts"))
+
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 console.log(process.env.DATABASE_URL);
