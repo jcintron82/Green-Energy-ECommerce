@@ -1,0 +1,141 @@
+
+
+
+
+
+
+
+<!-- <%- include('partials/header') -%> -->
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/cartpage.css">
+</head>
+
+<body class="body">
+    <section class="top-banner-total-wrap">
+        <h1>Your Cart</h1>
+        <h2>Total ${123.00}</h2>
+    </section>
+  <div class="item-wrap-desktop-view">
+    <div class="responsive-wrap-items">
+    <article class="items-mainwrap">
+        <ul class="itemsul">
+          <span class="cart-items-intro">You Have 3 Items In Your Cart</span>
+            <li class="itemli">
+                <h1 class="product-header">Solar Panels | $3000.00</h1>
+                <div class="product-img-wrap"><img class="img" src='/imgs/stock.avif'></div>
+                <label class="product-qty-labelwrap">Qty</label>
+                <span class="qtybtn-wrap">
+                    <button id="qtybtndown"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                  </svg></button><input class="qtyinput" name="qty" id="itemqty" placeholder="55" type="number"><button id="qtybtnup"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                  </svg></button>
+                </span>
+            </li>
+            <li class="itemli">
+              <h1 class="product-header">Solar Panels | $3000.00</h1>
+              <div class="product-img-wrap"><img class="img" src='/imgs/stock.avif'></div>
+              <label class="product-qty-labelwrap">Qty</label>
+              <span class="qtybtn-wrap">
+                  <button id="qtybtndown"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                </svg></button><input placeholder="5" type="number"><button id="qtybtnup"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                </svg></button>
+              </span>
+          </li>
+          <li class="itemli">
+            <h1 class="product-header">Solar Panels | $3000.00</h1>
+            <div class="product-img-wrap"><img class="img" src='/imgs/stock.avif'></div>
+            <label class="product-qty-labelwrap">Qty</label>
+            <span class="qtybtn-wrap">
+                <button id="qtybtndown"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+              </svg></button><input placeholder="5" type="number"><button id="qtybtnup"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+              </svg></button>
+            </span>
+        </li>
+        </ul>
+    </article>
+    <div class="see-more-btn-wrap"> <button class="expand-products-btn"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+  </svg></button></div>
+    </div>
+    <div>
+    <section class="bottom-banner-total-wrap">
+        <ul class="bottom-banner-ul">
+            <ul class='bottom-banner-li'><li>Item Qty</li><li>5 </li></ul>
+            <ul class='bottom-banner-li'><li>Subtotal</li><li>50.00 </li></ul>
+            <ul class='bottom-banner-li'><li>Tax</li><li>5.00 </li></ul>
+            <ul class='bottom-banner-li'><li>Total</li><li>55.00 </li></ul>
+            
+            </ul>
+            <button class="checkoutbtn">Checkout</button>
+            <section class="couponcode-mainwrap">
+            <h3 class="coupon-wrap">Have A Promotional Code?</h3><br>
+            <span class="coupon-credentials-wrap"><input type="text" placeholder="Coupon code"><button id="applycouponbtn">Apply Coupon</button></span>
+            </section>
+    </section>
+  </div>
+    </div>
+  </div>
+<span class="x">
+  <section class="login-coupon-parent-wrap">
+    <h3 class="loginwrap">Login to your account to earn or redeem points.<br></h3>
+  <div class="login-credentials-wrap">
+      <label class="label">
+      </label> <input type="text" placeholder="Username">
+      <label class="label"> 
+      </label><input type="text" placeholder="Password  ">
+      <button id="login-btn">Log-In</button>
+      <label>Remember me
+        <input type="radio">
+      </label>
+    </section>
+</span>
+</body>
+<script  src="/scripts/cartpage.js" ></script>
+<!-- 
+
+<main class="container">
+  <div class="row justify-content-center">
+    <section class="col-6 mt-5">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+  </div>
+</main>
+ -->
