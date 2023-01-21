@@ -10,6 +10,7 @@
     align-items: center;
     width: 90vw;
     height: 100vh;
+    background-color: #FAFAFA;;
 }
 
 .cart-items-intro{
@@ -31,6 +32,7 @@ li{
     margin-bottom: 2.5rem;
     width: 83vw;
     max-width: 105rem;
+    border-radius: .75rem;
 }  
 .responsive-wrap-items{
     display: flex;
@@ -47,8 +49,21 @@ li{
     /* max-width: 30rem; */
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-bottom: 5rem;
+    border-radius: .5rem;
+   
+    
 }
+.items-mainwrap::-webkit-scrollbar{
+   width: 0;
+      background-color:rgb(226 232 240);
+      background-color: #C9D4E3;
+      border-radius:.875rem;
+}
+.items-mainwrap::-webkit-scrollbar-thumb{
+    background:rgb(101 163 13);
+    border-radius:.875rem;
+    max-height: 2rem;;
+  }
 .expand-products-btn{
     width: 2rem;
     height: 2rem;
@@ -64,7 +79,7 @@ li{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 100%;
 }
 .itemli{
@@ -74,7 +89,7 @@ li{
     border: solid #C2C2C2 1px;
     width: 75%;
     margin-top: 1rem;
-    border-radius: 6px;
+    border-radius: .35rem;
     max-width: 25rem;
 
 }
@@ -156,6 +171,7 @@ li{
     border: solid #C2C2C2 1px;
     /* max-width: 30rem; */
     margin-bottom: 5vh;
+    border-radius: .5rem;
 
 }
 .bottom-banner-ul{
@@ -180,14 +196,16 @@ button{
 .checkoutbtn{
     margin: 0 .55rem;
     align-self: flex-end;
-    color: white;
-    background-color: #8E8F91;
+    color: black;
+    background-color: #C9D4E3;
     height: 5vh;
     width: 40vw;
     max-width: 10rem;
     border-radius: 6px;
     margin-top: .5rem;
     font-weight: 600;
+    font-size: 1em;
+    border-color: rgb(226 232 240);;
 }
 input[type=number] {
     margin: .5rem 0;
@@ -208,8 +226,13 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-flow: column nowrap;
     margin: 0;
+    width: 85vw;
+    align-items: flex-start;
 }
-
+.register-acct-wrap{
+    font-size: .75em;
+    margin-top: .25rem;
+}
 .loginwrap{
     display: flex;
     flex-flow: column nowrap;
@@ -219,17 +242,17 @@ input::-webkit-inner-spin-button {
     font-size: 1.5em;
     margin-bottom: 2vh;
     margin-top: 0;
+    max-width: 20rem;
 }
 .login-credentials-wrap{
     border-style: solid;
-    border-style: black;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
     justify-content: space-evenly;
     width: 67vw;
-    align-self: center;
-    border-width: 7vw;
+
+    border-width: 5vw;
     height: 25vh;
     background-color: rgb(226 232 240);
     border-color: rgb(226 232 240);
@@ -264,7 +287,8 @@ input::-webkit-inner-spin-button {
     height: 12vh;
     justify-content: space-evenly;
     background-color: rgb(226 232 240);
-    padding: .75rem
+    padding: .75rem;
+    border-radius: .35rem;
 }
 #applycouponbtn{
     align-self: flex-end;
@@ -297,17 +321,19 @@ input[type=text]{
 }
 #login-btn{
     align-self: flex-end;
-    margin-right: 4vw;
+    margin-right: 10%;;
     background-color: rgb(101 163 13);
     font:rgb(255,255,255) 0.875rem;
     font-weight: 700;
+    padding: .25rem .5rem;
+    
 }
 .expanded-products-toggle {
     display: block;
     overflow: visible;
-    margin-bottom: 120px;
+    margin-bottom:2.5rem;
+
     height: 100%;
-    padding-bottom: 3rem;
 }
 .marginadd{
     margin-bottom: 5rem;
@@ -326,11 +352,17 @@ input[type=text]{
     margin-top: 25rem;
 }
 @media(min-width:1024px){
+    .items-mainwrap::-webkit-scrollbar{
+   width: .7rem;
+}
     .body{
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
 
+    }
+    .checkoutbtn-top-mobile{
+        display: none;
     }
     .items-mainwrap{
         width: 45vw;
@@ -369,12 +401,15 @@ input[type=text]{
     .bottom-banner-total-wrap {
         display: flex;
        align-items: center;
+       border-radius: none;
        border: none;
        border-left: solid #D6D6D6 1px;
         width: 100%;
         height: 65vh;
         order: 3;
         padding-left: 2vw;
+
+
       
     }
    .loginwrap{
