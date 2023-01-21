@@ -47,6 +47,7 @@ li{
     /* max-width: 30rem; */
     overflow-x: hidden;
     overflow-y: scroll;
+    padding-bottom: 5rem;
 }
 .expand-products-btn{
     width: 2rem;
@@ -63,6 +64,7 @@ li{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: space-around;
     width: 100%;
 }
 .itemli{
@@ -74,7 +76,7 @@ li{
     margin-top: 1rem;
     border-radius: 6px;
     max-width: 25rem;
-    height:100%;
+
 }
 .product-header{
     display: flex;
@@ -179,12 +181,13 @@ button{
     margin: 0 .55rem;
     align-self: flex-end;
     color: white;
-    background-color: black;
+    background-color: #8E8F91;
     height: 5vh;
     width: 40vw;
     max-width: 10rem;
     border-radius: 6px;
     margin-top: .5rem;
+    font-weight: 600;
 }
 input[type=number] {
     margin: .5rem 0;
@@ -243,6 +246,7 @@ input::-webkit-inner-spin-button {
     align-self: flex-end;
     align-items: flex-end;
     padding-right: .35rem;
+    padding-bottom: 1rem;
 }
 .coupon-wrap{
     display: flex;
@@ -266,11 +270,12 @@ input::-webkit-inner-spin-button {
     align-self: flex-end;
     background-color: rgb(101 163 13);
     color: rgb(255,255,255);
-    font-weight: bold;
+    font-weight: 400;
     border-radius: 1rem;
     font-size: 0.875rem;
-    padding:.25rem;
+    padding:.25rem .35rem;
     border: solid #e0e0e0 3px;
+    margin-right: 10%;
 }
 #applycouponbtn:hover {
     background-color:rgb(77 124 15)
@@ -282,25 +287,50 @@ input[type=radio]{
 }
 input[type=text]{
     padding: .35rem;
-    width: 100%;
+    width: 80%;
+    align-self: flex-end;
+    margin: 0 10% 1.5% 0;
+    border-radius: 6px;
+    border: solid #C2C2C2 2px;
+    
+
 }
 #login-btn{
-    align-self: flex-start;
+    align-self: flex-end;
+    margin-right: 4vw;
     background-color: rgb(101 163 13);
     font:rgb(255,255,255) 0.875rem;
     font-weight: 700;
 }
 .expanded-products-toggle {
     display: block;
-    height: 100vh;
     overflow: visible;
+    margin-bottom: 120px;
+    height: 100%;
+    padding-bottom: 3rem;
 }
-
+.marginadd{
+    margin-bottom: 5rem;
+}
+/* * {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+} */
+.x{
+    display: flex;
+    z-index: 2;
+   align-self: flex-end;
+}
+.login-wrap-margin-toggle{
+    margin-top: 25rem;
+}
 @media(min-width:1024px){
     .body{
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+
     }
     .items-mainwrap{
         width: 45vw;
@@ -308,11 +338,18 @@ input[type=text]{
 
         justify-content: flex-start;
     }
+    .opendesktop{
+        display: block;
+        overflow: visible;
+        margin-bottom: 120px;
+        height: 100%;
+    }
     .item-wrap-desktop-view{
         display: flex;
         width: 80vw;
         justify-content: space-between;
         flex-flow: row;
+
         /* max-width: 100rem; */
     }
     .see-more-btn-wrap{
@@ -322,7 +359,6 @@ input[type=text]{
     .responsive-wrap-items{
         display: flex;
         flex-direction: column;
-        height: 50vh;
         width: 40vw;
         margin-right: 1.5rem;
     }
@@ -344,15 +380,19 @@ input[type=text]{
    .loginwrap{
     align-items: flex-start;
     width: 100%;
- 
+    
    }
    .login-credentials-wrap{
     align-self: flex-start;
-    border: solid rgb(226 232 240);
+    justify-content: center;
+    border: solid rgb(226 232 240) 2rem;
+    gap: .25rem;
+    height: 100%;
    }
    .login-coupon-parent-wrap{
     width: 39.5vw;
     margin-top: 3vh;
+    align-self: flex-end;
    }
    .coupon-wrap{
     padding:.25rem;
@@ -365,6 +405,7 @@ input[type=text]{
    .x{
     display: flex;
     z-index: 2;
+
    }
    .see-more-btn-wrap{
     margin-bottom: 0;
