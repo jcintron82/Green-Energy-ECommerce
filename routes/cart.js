@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const user = require("../models/User");
 
+
 const cart = [
     {
         name:'Solar Panels',
@@ -22,10 +23,10 @@ router.get("/", (req, res, next) => {
     };
 })
 
-// router.post("/createPost", upload.single("file"), postsController.createPost);
+// router.post("/createProduct", upload.single("file"), productsController.createProduct);
 
-// router.put("/likePost/:id", postsController.likePost);
+// router.put("/likeProduct/:id", productsController.likeProduct);
 
-// router.delete("/deletePost/:id", postsController.deletePost);
+// router.delete("/deleteProduct/:id", productsController.deleteProduct);
 
 module.exports = router;
