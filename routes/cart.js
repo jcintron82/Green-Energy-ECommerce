@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const Concentrate = require("../concentrates");
+const user = require("../models/User");
 
-const cart = [];
+const cart = [
+    {
+        name:'Solar Panels',
+        price: 3000
+    }
+];
 //Post Routes - simplified for now
 router.get("/", (req, res, next) => {
-    
+    console.log('f')
     const data = user.find({}, (err,cursor) => {
         cursor.forEach((dataset) => {
+            console.log(dataset)
             cart.push(dataset)
         })
     })

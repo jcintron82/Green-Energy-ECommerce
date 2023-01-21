@@ -290,6 +290,11 @@ input[type=text]{
     font:rgb(255,255,255) 0.875rem;
     font-weight: 700;
 }
+.expanded-products-toggle {
+    display: block;
+    height: 100vh;
+    overflow: visible;
+}
 
 @media(min-width:1024px){
     .body{
@@ -300,11 +305,8 @@ input[type=text]{
     .items-mainwrap{
         width: 45vw;
         min-height: 100%;
-        max-height: 30rem;
-        justify-content: flex-start;
-    }
-    .itemsul{
 
+        justify-content: flex-start;
     }
     .item-wrap-desktop-view{
         display: flex;
@@ -346,7 +348,7 @@ input[type=text]{
    }
    .login-credentials-wrap{
     align-self: flex-start;
-    border: solid rgb(226 232 240); 1px;
+    border: solid rgb(226 232 240);
    }
    .login-coupon-parent-wrap{
     width: 39.5vw;
