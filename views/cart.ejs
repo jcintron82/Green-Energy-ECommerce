@@ -5,7 +5,7 @@
 
 
 
-<!-- <%- include('partials/header') -%> -->
+<%- include('partials/header') -%>
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
                 <div class="product-img-wrap"><img class="img" src='/imgs/stock.avif'></div>
                 <label class="product-qty-labelwrap">Qty</label>
                 <span class="qtybtn-wrap">
-                    <button id="qtybtndown"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <button id="qtybtndown"><svg class='svg'style="margin-right:0px;width:24px;height:24px" viewBox="0 0 24 24">
                       <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
                   </svg></button><input class="qtyinput" name="qty" id="itemqty" placeholder="55" type="number"><button id="qtybtnup"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
                       <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
@@ -56,7 +56,7 @@
             <span class="qtybtn-wrap">
                 <button id="qtybtndown"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-              </svg></button><input placeholder="5" type="number"><button id="qtybtnup"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+              </svg></button><input placeholder="5" type="number"><button id="qtybtnup"><svg style="width:24px;height:24px;margin-right:0" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
               </svg></button>
             </span>
@@ -67,7 +67,7 @@
       <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
   </svg></button></div>
     </div>
-    <div>
+    <div class="price-wrap-parent">
     <section class="bottom-banner-total-wrap">
         <ul class="bottom-banner-ul">
             <ul class='bottom-banner-li'><li>Item Qty</li><li>5 </li></ul>
@@ -89,7 +89,7 @@
     <section class="login-coupon-parent-wrap">
       <h3 class="loginwrap">Login to your account to earn or redeem points.<br></h3>
     <div class="login-credentials-wrap">
-      <h2 class="register-acct-wrap">Need an account? <a href="#">Register Here</a></h2>
+      <h2 class="register-acct-wrap">Need an account? Register <a href="#">Here</a></h2>
         <label class="label">
         </label> <input type="text" placeholder="Username">
         <label class="label"> 
@@ -101,6 +101,7 @@
       </section>
   </span>
 </body>
+<%- include('partials/footer') -%>
 <script  src="/scripts/cartpage.js" ></script>
 <!-- 
 
