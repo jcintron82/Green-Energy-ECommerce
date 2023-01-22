@@ -16,4 +16,5 @@ seeMoreBtn.addEventListener('click', () => {
     desktop.classList.toggle('expanded-products-toggle');
     bottombanner.classList.toggle('marginadd');
     loginWrap.classList.toggle('login-wrap-margin-toggle')
+    seeMoreBtn.classList.toggle('desktop-expand-btn-toggle')
 })
