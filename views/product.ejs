@@ -42,7 +42,7 @@
       <div id="myTabContent">
         <div class="hidden p-4 rounded-lg bg-gray-50" id="description" role="tabpanel" aria-labelledby="description-tab">
           <!-- PRODUCT DESCRIPTION  -->
-          <p class="text-sm text-gray-500 "><%= product.caption %>. This is some placeholder content the <strong class="font-medium text-gray-800">Description</strong> tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+          <p class="text-sm text-gray-500 "><%= product.description %>. This is some placeholder content the <strong class="font-medium text-gray-800">Description</strong> tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
         </div>
         <div class="hidden p-4 rounded-lg bg-gray-50" id="productspecs" role="tabpanel" aria-labelledby="productspecs-tab">
           <p class="text-sm text-gray-500 ">This is some placeholder content the <strong class="font-medium text-gray-800">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
@@ -57,7 +57,7 @@
       <!-- Add to cart button and input field for quantity -->
       <div>
         <label for="default-input" class=" mb-2 text-sm font-medium text-gray-900">Quantity</label>
-        <input type="number" id="default-input" class=" p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-50">
+        <input type="number" id="default-input" class=" p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-50">
         <button class="btn-outline-green-100 bg-lime-600 hover:bg-lime-700 text-white hover:text-white py-2 px-4 rounded-full m-2">Add to cart</button>
       </div>
 
