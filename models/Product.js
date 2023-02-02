@@ -13,11 +13,15 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  caption: {
+  description: {
     type: String,
     required: true,
   },
   likes: {
+    type: Number,
+    required: true,
+  },
+  price: {
     type: Number,
     required: true,
   },
