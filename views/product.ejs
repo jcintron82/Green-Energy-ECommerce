@@ -9,7 +9,7 @@
       <div class="pt-3 flex items-center justify-between">
         <!-- PRODUCT TITLE INSERTED HERE -->
         <p class=""><%= product.title %></p>
-        <form class="col-1" action="/product/likeProductt/<%= product.id %>?_method=PUT" method="POST">
+        <form class="col-1" action="/product/likeProduct/<%= product.id %>?_method=PUT" method="POST">
           <button type="submit">
             <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
@@ -55,17 +55,18 @@
         </div>
       </div>
       <!-- Add to cart button and input field for quantity -->
+      <form action="/cart/addToCart/<%= product.id %>?_method=PUT" enctype="application/x-www-form-urlencoded" method="POST">
       <div>
-        <label for="default-input" class=" mb-2 text-sm font-medium text-gray-900">Quantity</label>
-        <input type="number" id="default-input" class=" p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-50">
-        <button class="btn-outline-green-100 bg-lime-600 hover:bg-lime-700 text-white hover:text-white py-2 px-4 rounded-full m-2">Add to cart</button>
+        <label for="quantity" class=" mb-2 text-sm font-medium text-gray-900">Quantity</label>
+        <input type="number" id="quantity" name="quantity" class=" p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-50">
+        <button type="submit" value="submit" class="btn-outline-green-100 bg-lime-600 hover:bg-lime-700 text-white hover:text-white py-2 px-4 rounded-full m-2">Add to cart</button>
       </div>
-
+      </form>
     </div>
     <!-- DELETE PRODUCT - If product owner is logged in -->
     <%if(product.user == user.id){ %>
     <form action="/product/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" class="col-3">
-      <button class="btn btn-grey mt-5" type="submit">Delete this product</button>
+      <button class="btn btn-grey mt-5" type="Submit">Delete this product</button>
     </form>
     <%}%>     
     </div>

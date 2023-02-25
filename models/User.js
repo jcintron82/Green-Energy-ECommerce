@@ -5,7 +5,16 @@ const UserSchema = new mongoose.Schema({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   email: {type:String, required: true},
-  cart: {type: Array, required: true},
+  cart: [{
+    productId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Product'
+    },
+    quantity: { type: Number, required: true },
+    price: { type: Number, required: true },
+    title: {type: String, required: true},
+    image: String,
+  }],
   favourites: {type: Array, required: true},
   creationDate: {type: Date, required:true},
   password: {type: String, required:true},

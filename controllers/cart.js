@@ -1,5 +1,5 @@
 // const cloudinary = require("../middleware/cloudinary");
-// const Product = require("../models/Product");
+const Product = require("../models/Product");
 const User = require("../models/User");
 
 module.exports = {
@@ -10,16 +10,23 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
-    },
+  },
+  
+  addToCart: async (req, res) => {
+    try {
+      const product = await Product.findById({ _id: req.params.id});
+      console.log(product)
+      await User.findOneAndUpdate(
+        { cart: req.user.cart },
+        { $push: { cart: { productId: product, quantity: req.body.quantity, price: product.price, title: product.title, image: product.image } } },
+      );
+      console.log("Product added to cart");
+      res.redirect("/cart");
+    } catch (err) {
+      console.log(err, "Error adding product to cart");
+    }
+  }
 
-    // getFeed: async (req, res) => {
-    //   try {
-    //     const products = await Product.find().sort({ createdAt: "desc" }).lean();
-    //     res.render("feed.ejs", { products: products });
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // },
     // getProduct: async (req, res) => {
     //   try {
     //     const product = await Product.findById(req.params.id);
